@@ -8,8 +8,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      AWS_S3_BUCKET_NAME: blog-s3bucket-x8rtgbq6xaci
-      AWS_CF_DISTRIBUTION_ID: E1ZRC9R5Y0LLL0
+      AWS_S3_BUCKET_NAME: heikehaenseltestremoveafterfinal
+      # AWS_CF_DISTRIBUTION_ID: E1ZRC9R5Y0LLL0
       working-directory: ./gatsby
     strategy:
       matrix:
@@ -48,11 +48,11 @@ jobs:
           AWS_REGION: "eu-central-1"
           SOURCE_DIR: public
         working-directory: ${{env.working-directory}}
-      - name: Create CloudFront Cache Invalidation
-        uses: chetan/invalidate-cloudfront-action@master
-        env:
-          DISTRIBUTION: ${{ env.AWS_CF_DISTRIBUTION_ID }}
-          PATHS: "/*"
-          AWS_REGION: "eu-central-1"
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      # - name: Create CloudFront Cache Invalidation
+      #   uses: chetan/invalidate-cloudfront-action@master
+      #   env:
+      #     DISTRIBUTION: ${{ env.AWS_CF_DISTRIBUTION_ID }}
+      #     PATHS: "/*"
+      #     AWS_REGION: "eu-central-1"
+      #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

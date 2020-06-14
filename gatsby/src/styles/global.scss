@@ -1,0 +1,34 @@
+/* purgecss start ignore */
+
+/**
+ * Base
+ */
+
+@import "tailwindcss/base";
+
+/**
+  * Components
+  */
+
+@import "tailwindcss/components";
+@import "./burger-icon.scss";
+@import "./shadows.scss";
+
+/* purgecss end ignore */
+
+/**
+  * Utilities
+  */
+
+@import "tailwindcss/utilities";
+@import "./typography.scss";
+@import "./font-faces.scss";
+
+@responsive {
+  .h-128 {
+    height: 32rem;
+  }
+  .h-80 {
+    height: 20rem;
+  }
+}

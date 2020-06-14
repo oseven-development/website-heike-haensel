@@ -1,0 +1,22 @@
+/**
+ * Burger Icon (for Mobile Navigation)
+ */
+
+.burger-icon {
+  @apply relative w-8 h-3px bg-current ml-3;
+
+  &::before,
+  &::after {
+    content: " ";
+
+    @apply absolute top-0 block w-inherit h-inherit bg-inherit transform;
+  }
+
+  &::before {
+    @apply -translate-y-2;
+  }
+
+  &::after {
+    @apply translate-y-2;
+  }
+}

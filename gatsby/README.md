@@ -1,2 +1,2 @@
 update readme
-deploy
+deploy v1.0

@@ -1,12 +1,13 @@
+resource "aws_cloudfront_distribution" "landingpage" {
+  depends_on = [aws_acm_certificate_validation.client_cert, aws_s3_bucket.hosting_bucket]
 
-resource "aws_cloudfront_distribution" "application" {
   enabled             = true
   is_ipv6_enabled     = true
   default_root_object = "index.html"
 
   origin {
-    domain_name = aws_s3_bucket.hosting-bucket-homepage.website_endpoint
-    origin_id   = aws_s3_bucket.hosting-bucket-homepage.id
+    domain_name = aws_s3_bucket.hosting_bucket.website_endpoint
+    origin_id   = aws_s3_bucket.hosting_bucket.id
 
     custom_origin_config {
       http_port              = 80
@@ -16,14 +17,14 @@ resource "aws_cloudfront_distribution" "application" {
     }
   }
 
-  aliases = ["heikehaensel.de"]
+  aliases = [var.root_domain_name]
 
   comment = "Terraform configured"
 
   default_cache_behavior {
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = aws_s3_bucket.hosting-bucket-homepage.id
+    target_origin_id       = aws_s3_bucket.hosting_bucket.id
     viewer_protocol_policy = "redirect-to-https"
     compress               = true
 
@@ -46,7 +47,7 @@ resource "aws_cloudfront_distribution" "application" {
 
   viewer_certificate {
     cloudfront_default_certificate = false
-    acm_certificate_arn            = var.acm_arn_root
+    acm_certificate_arn            = aws_acm_certificate.client_cert.arn
     ssl_support_method             = "sni-only"
     minimum_protocol_version       = "TLSv1.1_2016"
   }
@@ -66,13 +67,15 @@ resource "aws_cloudfront_distribution" "application" {
   }
 }
 
-resource "aws_cloudfront_distribution" "redirection-to-root" {
+resource "aws_cloudfront_distribution" "redirection_to_landingpage" {
+  depends_on = [aws_acm_certificate_validation.client_cert, aws_s3_bucket.hosting_bucket_redirect]
+
   enabled         = true
   is_ipv6_enabled = true
 
   origin {
-    domain_name = aws_s3_bucket.hosting-redirect.website_endpoint
-    origin_id   = aws_s3_bucket.hosting-redirect.id
+    domain_name = aws_s3_bucket.hosting_bucket_redirect.website_endpoint
+    origin_id   = aws_s3_bucket.hosting_bucket_redirect.id
 
     custom_origin_config {
       http_port              = 80
@@ -82,12 +85,14 @@ resource "aws_cloudfront_distribution" "redirection-to-root" {
     }
   }
 
-  aliases = ["www.heikehaensel.de"]
+  aliases = ["www.${var.root_domain_name}"]
+
+  comment = "Terraform configured"
 
   default_cache_behavior {
     allowed_methods        = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods         = ["GET", "HEAD"]
-    target_origin_id       = aws_s3_bucket.hosting-redirect.id
+    target_origin_id       = aws_s3_bucket.hosting_bucket_redirect.id
     viewer_protocol_policy = "allow-all"
 
     forwarded_values {
@@ -104,10 +109,11 @@ resource "aws_cloudfront_distribution" "redirection-to-root" {
     }
   }
 
+
   viewer_certificate {
     cloudfront_default_certificate = false
-    acm_certificate_arn = var.acm_arn_root
-    ssl_support_method = "sni-only"
-    minimum_protocol_version = "TLSv1.1_2016"
+    acm_certificate_arn            = aws_acm_certificate.client_cert.arn
+    ssl_support_method             = "sni-only"
+    minimum_protocol_version       = "TLSv1.1_2016"
   }
 }

@@ -5,7 +5,7 @@
 resource "aws_s3_bucket" "hosting_bucket" {
   bucket = "${var.prefix}-hosting-bucket-homepage-${var.random_id}"
   acl    = "private"
-  region = var.aws_region
+
 
   website {
     index_document = "index.html"
@@ -16,7 +16,7 @@ resource "aws_s3_bucket" "hosting_bucket" {
 resource "aws_s3_bucket" "hosting_bucket_redirect" {
   bucket = "${var.prefix}-hosting-bucket-redirect-${var.random_id}"
   acl    = "private"
-  region = var.aws_region
+
   website {
     redirect_all_requests_to = "https://${var.root_domain_name}"
   }

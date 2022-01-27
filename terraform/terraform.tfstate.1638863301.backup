@@ -1,7 +1,7 @@
 {
   "version": 4,
   "terraform_version": "1.0.4",
-  "serial": 35,
+  "serial": 13,
   "lineage": "e4ecb3d5-03cd-1f83-1e5b-b26980954e5e",
   "outputs": {},
   "resources": [
@@ -45,11 +45,7 @@
               "www.heikehaensel.de"
             ],
             "tags": {},
-            "tags_all": {
-              "Environment": "Prod",
-              "Project": "heikehaensel.de",
-              "Terraform": "true"
-            },
+            "tags_all": {},
             "validation_emails": [],
             "validation_method": "DNS"
           },
@@ -68,19 +64,14 @@
           "schema_version": 0,
           "attributes": {
             "certificate_arn": "arn:aws:acm:us-east-1:403039540759:certificate/4dfada11-e621-4b3d-a258-4f0674383a84",
-            "id": "2021-12-07 09:38:30.965 +0000 UTC",
+            "id": "2020-11-10 20:54:46 +0000 UTC",
             "timeouts": null,
-            "validation_record_fqdns": [
-              "_20028309bb576404b073103096890ee0.heikehaensel.de",
-              "_e767ada0ab04bfe513554ae38b4f08ff.www.heikehaensel.de"
-            ]
+            "validation_record_fqdns": null
           },
           "sensitive_attributes": [],
           "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNzAwMDAwMDAwMDAwfX0=",
           "dependencies": [
-            "aws_route53_zone.primary",
-            "aws_acm_certificate.client_cert",
-            "aws_route53_record.client_cert_validation"
+            "aws_acm_certificate.client_cert"
           ]
         }
       ]
@@ -163,13 +154,13 @@
             "default_root_object": "index.html",
             "domain_name": "d3ntv943bwk2df.cloudfront.net",
             "enabled": true,
-            "etag": "E1CIXK0KO0X09K",
+            "etag": "E2Z09LUCZ443R5",
             "hosted_zone_id": "Z2FDTNDATAQYW2",
             "http_version": "http2",
             "id": "E12NEAZ6DPU81H",
             "in_progress_validation_batches": 0,
             "is_ipv6_enabled": true,
-            "last_modified_time": "2022-01-27 16:16:35.253 +0000 UTC",
+            "last_modified_time": "2020-11-10 20:54:49.815 +0000 UTC",
             "logging_config": [],
             "ordered_cache_behavior": [],
             "origin": [
@@ -213,13 +204,7 @@
             "retain_on_delete": false,
             "status": "Deployed",
             "tags": {},
-            "tags_all": {
-              "Environment": "Prod",
-              "GitHubProject": "oseven-development/website-heike-haensel",
-              "Owner": "oseven",
-              "Project": "heikehaensel.de",
-              "Terraform": "true"
-            },
+            "tags_all": {},
             "trusted_key_groups": [
               {
                 "enabled": false,
@@ -319,13 +304,13 @@
             "default_root_object": "",
             "domain_name": "d10uk2ek1qsso.cloudfront.net",
             "enabled": true,
-            "etag": "E2W50ZI40IY3IL",
+            "etag": "E34VCP50WLN4GL",
             "hosted_zone_id": "Z2FDTNDATAQYW2",
             "http_version": "http2",
             "id": "E1JZCPTR2G02FV",
             "in_progress_validation_batches": 0,
             "is_ipv6_enabled": true,
-            "last_modified_time": "2022-01-27 16:16:35.232 +0000 UTC",
+            "last_modified_time": "2020-11-10 20:54:49.831 +0000 UTC",
             "logging_config": [],
             "ordered_cache_behavior": [],
             "origin": [
@@ -369,13 +354,7 @@
             "retain_on_delete": false,
             "status": "Deployed",
             "tags": {},
-            "tags_all": {
-              "Environment": "Prod",
-              "GitHubProject": "oseven-development/website-heike-haensel",
-              "Owner": "oseven",
-              "Project": "heikehaensel.de",
-              "Terraform": "true"
-            },
+            "tags_all": {},
             "trusted_key_groups": [
               {
                 "enabled": false,
@@ -413,296 +392,7 @@
     {
       "mode": "managed",
       "type": "aws_route53_record",
-      "name": "a-record",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 2,
-          "attributes": {
-            "alias": [
-              {
-                "evaluate_target_health": false,
-                "name": "d3ntv943bwk2df.cloudfront.net",
-                "zone_id": "Z2FDTNDATAQYW2"
-              }
-            ],
-            "allow_overwrite": null,
-            "failover_routing_policy": [],
-            "fqdn": "heikehaensel.de",
-            "geolocation_routing_policy": [],
-            "health_check_id": "",
-            "id": "Z05909638I3QV9RULCZ1_heikehaensel.de_A",
-            "latency_routing_policy": [],
-            "multivalue_answer_routing_policy": null,
-            "name": "heikehaensel.de",
-            "records": [],
-            "set_identifier": "",
-            "ttl": 0,
-            "type": "A",
-            "weighted_routing_policy": [],
-            "zone_id": "Z05909638I3QV9RULCZ1"
-          },
-          "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_acm_certificate.client_cert",
-            "aws_acm_certificate_validation.client_cert",
-            "aws_cloudfront_distribution.landingpage",
-            "aws_route53_record.client_cert_validation",
-            "aws_route53_zone.primary",
-            "aws_s3_bucket.hosting_bucket"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_route53_record",
-      "name": "a-record-www-redirect",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 2,
-          "attributes": {
-            "alias": [
-              {
-                "evaluate_target_health": false,
-                "name": "d10uk2ek1qsso.cloudfront.net",
-                "zone_id": "Z2FDTNDATAQYW2"
-              }
-            ],
-            "allow_overwrite": null,
-            "failover_routing_policy": [],
-            "fqdn": "www.heikehaensel.de",
-            "geolocation_routing_policy": [],
-            "health_check_id": "",
-            "id": "Z05909638I3QV9RULCZ1_www.heikehaensel.de_A",
-            "latency_routing_policy": [],
-            "multivalue_answer_routing_policy": null,
-            "name": "www.heikehaensel.de",
-            "records": [],
-            "set_identifier": "",
-            "ttl": 0,
-            "type": "A",
-            "weighted_routing_policy": [],
-            "zone_id": "Z05909638I3QV9RULCZ1"
-          },
-          "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_acm_certificate_validation.client_cert",
-            "aws_cloudfront_distribution.redirection_to_landingpage",
-            "aws_route53_record.client_cert_validation",
-            "aws_route53_zone.primary",
-            "aws_s3_bucket.hosting_bucket_redirect",
-            "aws_acm_certificate.client_cert"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_route53_record",
-      "name": "aaaa-record",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 2,
-          "attributes": {
-            "alias": [
-              {
-                "evaluate_target_health": false,
-                "name": "d3ntv943bwk2df.cloudfront.net",
-                "zone_id": "Z2FDTNDATAQYW2"
-              }
-            ],
-            "allow_overwrite": null,
-            "failover_routing_policy": [],
-            "fqdn": "heikehaensel.de",
-            "geolocation_routing_policy": [],
-            "health_check_id": "",
-            "id": "Z05909638I3QV9RULCZ1_heikehaensel.de_AAAA",
-            "latency_routing_policy": [],
-            "multivalue_answer_routing_policy": null,
-            "name": "heikehaensel.de",
-            "records": [],
-            "set_identifier": "",
-            "ttl": 0,
-            "type": "AAAA",
-            "weighted_routing_policy": [],
-            "zone_id": "Z05909638I3QV9RULCZ1"
-          },
-          "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_acm_certificate_validation.client_cert",
-            "aws_cloudfront_distribution.landingpage",
-            "aws_route53_record.client_cert_validation",
-            "aws_route53_zone.primary",
-            "aws_s3_bucket.hosting_bucket",
-            "aws_acm_certificate.client_cert"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_route53_record",
-      "name": "aaaa-record-www-redirect",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 2,
-          "attributes": {
-            "alias": [
-              {
-                "evaluate_target_health": false,
-                "name": "d10uk2ek1qsso.cloudfront.net",
-                "zone_id": "Z2FDTNDATAQYW2"
-              }
-            ],
-            "allow_overwrite": null,
-            "failover_routing_policy": [],
-            "fqdn": "www.heikehaensel.de",
-            "geolocation_routing_policy": [],
-            "health_check_id": "",
-            "id": "Z05909638I3QV9RULCZ1_www.heikehaensel.de_AAAA",
-            "latency_routing_policy": [],
-            "multivalue_answer_routing_policy": null,
-            "name": "www.heikehaensel.de",
-            "records": [],
-            "set_identifier": "",
-            "ttl": 0,
-            "type": "AAAA",
-            "weighted_routing_policy": [],
-            "zone_id": "Z05909638I3QV9RULCZ1"
-          },
-          "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_acm_certificate_validation.client_cert",
-            "aws_cloudfront_distribution.redirection_to_landingpage",
-            "aws_route53_record.client_cert_validation",
-            "aws_route53_zone.primary",
-            "aws_s3_bucket.hosting_bucket_redirect",
-            "aws_acm_certificate.client_cert"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_route53_record",
-      "name": "client_cert_validation",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "index_key": "heikehaensel.de",
-          "schema_version": 2,
-          "attributes": {
-            "alias": [],
-            "allow_overwrite": true,
-            "failover_routing_policy": [],
-            "fqdn": "_20028309bb576404b073103096890ee0.heikehaensel.de",
-            "geolocation_routing_policy": [],
-            "health_check_id": "",
-            "id": "Z05909638I3QV9RULCZ1__20028309bb576404b073103096890ee0.heikehaensel.de._CNAME",
-            "latency_routing_policy": [],
-            "multivalue_answer_routing_policy": null,
-            "name": "_20028309bb576404b073103096890ee0.heikehaensel.de",
-            "records": [
-              "_39fce0584ca51ddf60328eb1d42504f3.tfmgdnztqk.acm-validations.aws."
-            ],
-            "set_identifier": "",
-            "ttl": 60,
-            "type": "CNAME",
-            "weighted_routing_policy": [],
-            "zone_id": "Z05909638I3QV9RULCZ1"
-          },
-          "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_acm_certificate.client_cert",
-            "aws_route53_zone.primary"
-          ]
-        },
-        {
-          "index_key": "www.heikehaensel.de",
-          "schema_version": 2,
-          "attributes": {
-            "alias": [],
-            "allow_overwrite": true,
-            "failover_routing_policy": [],
-            "fqdn": "_e767ada0ab04bfe513554ae38b4f08ff.www.heikehaensel.de",
-            "geolocation_routing_policy": [],
-            "health_check_id": "",
-            "id": "Z05909638I3QV9RULCZ1__e767ada0ab04bfe513554ae38b4f08ff.www.heikehaensel.de._CNAME",
-            "latency_routing_policy": [],
-            "multivalue_answer_routing_policy": null,
-            "name": "_e767ada0ab04bfe513554ae38b4f08ff.www.heikehaensel.de",
-            "records": [
-              "_8b509a76c7a188391b7eca3a2b132ba1.tfmgdnztqk.acm-validations.aws."
-            ],
-            "set_identifier": "",
-            "ttl": 60,
-            "type": "CNAME",
-            "weighted_routing_policy": [],
-            "zone_id": "Z05909638I3QV9RULCZ1"
-          },
-          "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_acm_certificate.client_cert",
-            "aws_route53_zone.primary"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_route53_record",
-      "name": "outlook-cname",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 2,
-          "attributes": {
-            "alias": [],
-            "allow_overwrite": null,
-            "failover_routing_policy": [],
-            "fqdn": "autodiscover.heikehaensel.de",
-            "geolocation_routing_policy": [],
-            "health_check_id": "",
-            "id": "Z05909638I3QV9RULCZ1_autodiscover.heikehaensel.de_CNAME",
-            "latency_routing_policy": [],
-            "multivalue_answer_routing_policy": null,
-            "name": "autodiscover.heikehaensel.de",
-            "records": [
-              "autodiscover.outlook.com"
-            ],
-            "set_identifier": "",
-            "ttl": 300,
-            "type": "CNAME",
-            "weighted_routing_policy": [],
-            "zone_id": "Z05909638I3QV9RULCZ1"
-          },
-          "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_cloudfront_distribution.landingpage",
-            "aws_route53_record.client_cert_validation",
-            "aws_route53_zone.primary",
-            "aws_s3_bucket.hosting_bucket",
-            "aws_acm_certificate.client_cert",
-            "aws_acm_certificate_validation.client_cert"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_route53_record",
-      "name": "outlook-mx",
+      "name": "outlook-txt",
       "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
       "instances": [
         {
@@ -728,56 +418,7 @@
             "zone_id": "Z05909638I3QV9RULCZ1"
           },
           "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_route53_zone.primary",
-            "aws_s3_bucket.hosting_bucket",
-            "aws_acm_certificate.client_cert",
-            "aws_acm_certificate_validation.client_cert",
-            "aws_cloudfront_distribution.landingpage",
-            "aws_route53_record.client_cert_validation"
-          ]
-        }
-      ]
-    },
-    {
-      "mode": "managed",
-      "type": "aws_route53_record",
-      "name": "outlook-txt",
-      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
-      "instances": [
-        {
-          "schema_version": 2,
-          "attributes": {
-            "alias": [],
-            "allow_overwrite": null,
-            "failover_routing_policy": [],
-            "fqdn": "heikehaensel.de",
-            "geolocation_routing_policy": [],
-            "health_check_id": "",
-            "id": "Z05909638I3QV9RULCZ1_heikehaensel.de_TXT",
-            "latency_routing_policy": [],
-            "multivalue_answer_routing_policy": null,
-            "name": "heikehaensel.de",
-            "records": [
-              "v=spf1 include:spf.protection.outlook.com -all"
-            ],
-            "set_identifier": "",
-            "ttl": 300,
-            "type": "TXT",
-            "weighted_routing_policy": [],
-            "zone_id": "Z05909638I3QV9RULCZ1"
-          },
-          "sensitive_attributes": [],
-          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
-          "dependencies": [
-            "aws_route53_zone.primary",
-            "aws_s3_bucket.hosting_bucket",
-            "aws_acm_certificate.client_cert",
-            "aws_acm_certificate_validation.client_cert",
-            "aws_cloudfront_distribution.landingpage",
-            "aws_route53_record.client_cert_validation"
-          ]
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ=="
         }
       ]
     },
@@ -803,13 +444,7 @@
               "ns-671.awsdns-19.net"
             ],
             "tags": {},
-            "tags_all": {
-              "Environment": "Prod",
-              "GitHubProject": "oseven-development/website-heike-haensel",
-              "Owner": "oseven",
-              "Project": "heikehaensel.de",
-              "Terraform": "true"
-            },
+            "tags_all": {},
             "vpc": [],
             "zone_id": "Z05909638I3QV9RULCZ1"
           },
@@ -848,13 +483,7 @@
             "request_payer": "BucketOwner",
             "server_side_encryption_configuration": [],
             "tags": {},
-            "tags_all": {
-              "Environment": "Prod",
-              "GitHubProject": "oseven-development/website-heike-haensel",
-              "Owner": "oseven",
-              "Project": "heikehaensel.de",
-              "Terraform": "true"
-            },
+            "tags_all": {},
             "versioning": [
               {
                 "enabled": false,
@@ -907,13 +536,7 @@
             "request_payer": "BucketOwner",
             "server_side_encryption_configuration": [],
             "tags": {},
-            "tags_all": {
-              "Environment": "Prod",
-              "GitHubProject": "oseven-development/website-heike-haensel",
-              "Owner": "oseven",
-              "Project": "heikehaensel.de",
-              "Terraform": "true"
-            },
+            "tags_all": {},
             "versioning": [
               {
                 "enabled": false,

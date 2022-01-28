@@ -104,18 +104,13 @@ const HolographischeReinkarnationsTherapiePage = () => {
           </ul>
           <h2 className="text-purple">Mein Angebot</h2>
           <p>
-            Ich befinde mich z.Z. in Ausbildung zur Holographischen
-            Reinkarnationstherapeutin bei Frau Dipl.-Psych. Ulrike Vinmann in
-            Nürnberg.
+            Meine Ausbildung zur Holographischen Reinkarnationstherapie habe ich von 2016 - 2020 bei Frau Dipl. Psych. Ulrike Vinmann absolviert. 
+            Eine Sitzung dauert 2 Stunden und die Kosten hierfür betragen 100 € pro Stunde.
           </p>
           <p>
-            Über die Hälfte der 3-jährigen Ausbildung habe ich bereits
-            abgeschlossen. Im Rahmen der Ausbildung muss ich eine bestimmte
-            Anzahl von Therapien vorweisen. Begleitet werden diese Therapien
-            durch Supervision von Frau Vinmann, die selbstverständlich unter
-            Schweigepflicht fällt. Deshalb kann ich Ihnen diese Therapiemethode
-            zu einem günstigeren Preis als eine fertig ausgebildete Therapeutin
-            anbieten. Bitte sprechen Sie mich wegen des Honorars an.
+            Die erste Einheit beinhaltet ein ausführliches Vorgespräch, in dem ich Ihre Lebenssituation näher kennenlerne und im Abschluss wir besprechen wir das therapeutische Vorgehen. 
+            Habe ich Ihr Interesse geweckt, dann vereinbaren Sie einen Termin. 
+            Ich freue mich auf Ihre Mail oder Ihren Anruf.
           </p>
           <p>Veröffentlichungen von Frau Dipl.-Psych. Ulrike Vinmann</p>
           <a

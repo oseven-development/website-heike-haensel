@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Seo, Courses, ImageSlider } from "../components"
 
 const IndexPage = ({ data }) => {
@@ -29,7 +29,11 @@ const IndexPage = ({ data }) => {
           <h3 className="text-purple">Neue Kurse:</h3>
           <h2 className="text-purple">Autogenes Training für Erwachsene</h2>
           <h3>Leider können zur Zeit keine Kurse stattfinden!</h3>
-          <Img className="my-8" fluid={data.atfe.childImageSharp.fluid} />
+          <GatsbyImage
+            className="my-8"
+            image={data.atfe.childImageSharp.gatsbyImageData}
+            alt=""
+          />
           {/* <Courses /> */}
         </div>
       </section>
@@ -51,13 +55,15 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage
 
-export const indexQuery = graphql`
+export const query = graphql`
   {
     atfe: file(
       sourceInstanceName: { eq: "images" }
       relativePath: { eq: "H_Haensel_9760_roh.jpg" }
     ) {
-      ...image
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH)
+      }
     }
   }
 `

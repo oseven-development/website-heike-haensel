@@ -8,6 +8,7 @@ module.exports = {
     author: `oseven - Maximilian Haensel Einzelunternehmer`,
   },
   plugins: [
+    `gatsby-plugin-image`,
     "gatsby-plugin-typescript",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-robots-txt",
